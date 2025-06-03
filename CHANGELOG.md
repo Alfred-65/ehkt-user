@@ -13,6 +13,11 @@ following sections (if non-empty):
 
 Currently, the versioning policy of this project follows [Semantic Versioning v2.0.0][].
 
+## v0.2.0, 2025-06-03
+Summary of changes in 0.2.0 since 0.1.0:
+1. for "find eHKT" the user can choose between "broadcast" ServiceDiscovery
+   and "non-broadcast" ServiceDiscovery
+
 ## v0.1.0, 2025-06-03
 Summary of changes in 0.1.0 since 0.0.1:
 1. The GUI now has two additional elements for the IPv4 address and the port
