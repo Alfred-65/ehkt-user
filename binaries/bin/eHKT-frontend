@@ -116,7 +116,7 @@ esac
 
 CLASSPATH=$APP_HOME/lib/jsr305-3.0.2.jar
 
-MODULE_PATH=$APP_HOME/lib/eHKT-frontend-0.0.1-SNAPSHOT.jar:$APP_HOME/lib/de.gematik.smartcards.net-0.1.7-SNAPSHOT.jar:$APP_HOME/lib/de.gematik.smartcards.sicct-0.2.5-SNAPSHOT.jar:$APP_HOME/lib/guava-annotations-r03-module.jar:$APP_HOME/lib/de.gematik.smartcards.g2icc-0.3.5.jar:$APP_HOME/lib/de.gematik.smartcards.pcsc-0.4.4.jar:$APP_HOME/lib/de.gematik.smartcards.sdcom-0.5.4.jar:$APP_HOME/lib/de.gematik.smartcards.crypto-0.6.4.jar:$APP_HOME/lib/de.gematik.smartcards.tlv-0.7.4.jar:$APP_HOME/lib/de.gematik.smartcards.utils-0.8.4.jar:$APP_HOME/lib/spotbugs-annotations-4.9.3.jar:$APP_HOME/lib/logback-classic-1.5.18.jar:$APP_HOME/lib/slf4j-api-2.0.17.jar:$APP_HOME/lib/logback-core-1.5.18.jar:$APP_HOME/lib/jna-5.17.0.jar
+MODULE_PATH=$APP_HOME/lib/eHKT-frontend-0.1.0.jar:$APP_HOME/lib/de.gematik.smartcards.net-0.1.7-SNAPSHOT.jar:$APP_HOME/lib/de.gematik.smartcards.sicct-0.2.5-SNAPSHOT.jar:$APP_HOME/lib/guava-annotations-r03-module.jar:$APP_HOME/lib/de.gematik.smartcards.g2icc-0.3.5.jar:$APP_HOME/lib/de.gematik.smartcards.pcsc-0.4.4.jar:$APP_HOME/lib/de.gematik.smartcards.sdcom-0.5.4.jar:$APP_HOME/lib/de.gematik.smartcards.crypto-0.6.4.jar:$APP_HOME/lib/de.gematik.smartcards.tlv-0.7.4.jar:$APP_HOME/lib/de.gematik.smartcards.utils-0.8.4.jar:$APP_HOME/lib/spotbugs-annotations-4.9.3.jar:$APP_HOME/lib/logback-classic-1.5.18.jar:$APP_HOME/lib/slf4j-api-2.0.17.jar:$APP_HOME/lib/logback-core-1.5.18.jar:$APP_HOME/lib/jna-5.17.0.jar
 
 
 # Determine the Java command to use to start the JVM.

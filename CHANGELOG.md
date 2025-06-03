@@ -13,7 +13,12 @@ following sections (if non-empty):
 
 Currently, the versioning policy of this project follows [Semantic Versioning v2.0.0][].
 
-## v0.0.1, 2026-06-02
+## v0.1.0, 2025-06-03
+Summary of changes in 0.1.0 since 0.0.1:
+1. The GUI now has two additional elements for the IPv4 address and the port
+   of the eHealth-Card-Terminal to connect to
+
+## v0.0.1, 2025-06-02
 First release.
 
 
