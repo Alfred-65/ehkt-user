@@ -1,0 +1,60 @@
+# This script uses all RSA artefacts possibly present in an eGK.
+
+logUse all RSA artefacts an eGK
+
+logSICCT REQUEST ICC, slot 1
+KT 80  12  01 0d   03  80-01-3c 00 # SICCT REQUEST ICC, slot 1, standard message, ATR
+
+    logSELECT DF.ESIGN
+    Slot0001   00 a4 040c   0a   A000 0001 6745 5349 474E
+
+    logSELECT       EF.C.CH.AUT.R2048     per FileIdentifier
+    Slot0001   00 a4 020c   02   c500
+
+    logReadBinary   EF.C.CH.AUT.R2048     with SFI
+    Slot0001   00 b0 8100   00   0000
+
+    logSELECT       EF.C.CH.AUTN.R2048    per FileIdentifier
+    Slot0001   00 a4 020c   02   c509
+
+    logReadBinary   EF.C.CH.AUTN.R2048    with SFI
+    Slot0001   00 b0 8900   00   0000
+
+    logSELECT       EF.C.CH.ENC.R2048     per FileIdentifier
+    Slot0001   00 a4 020c   02   c200
+
+    logReadBinary   EF.C.CH.ENC.R2048     with SFI
+    Slot0001   00 b0 8200   00   0000
+
+    logSELECT       EF.C.CH.ENCV.R2048    per FileIdentifier
+    Slot0001   00 a4 020c   02   c50a
+
+    logReadBinary   EF.C.CH.ENCV.R2048    with SFI
+    Slot0001   00 b0 8a00   00   0000
+
+    logMSE Set   PrK.CH.AUT.R2048
+    Slot0001   00 22 41a4   06   84-01-82 || 80-01-05
+
+    logMSE Set   PrK.CH.AUTN.R2048
+    Slot0001   00 22 41a4   06   84-01-86 || 80-01-05
+
+    logMSE Set   PrK.CH.ENC.R2048
+    Slot0001   00 22 41b8   06   84-01-83 || 80-01-85
+
+    logMSE Set   PrK.CH.AUTN.R2048
+    Slot0001   00 22 41a4   06   84-01-87 || 80-01-85
+
+    logSELECT DF.QES
+    Slot0001   00 a4 040c   06   D276000066 01
+
+    logSELECT       EF.C.CH.QES.R2048     per FileIdentifier
+    Slot0001   00 a4 020c   02   c000
+
+    logReadBinary   EF.C.CH.AUT.R2048     with SFI
+    Slot0001   00 b0 9000   00   0000
+
+    logMSE Set   PrK.CH.QES.R2048
+    Slot0001   00 22 41b6   06   84-01-84 || 80-01-05
+
+logSICCT EJECT ICC from slot 1
+KT 80  15  01 0c   03   80-01-3c

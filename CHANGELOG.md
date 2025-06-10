@@ -13,6 +13,13 @@ following sections (if non-empty):
 
 Currently, the versioning policy of this project follows [Semantic Versioning v2.0.0][].
 
+## v0.3.0, 2025-06-10
+Summary of changes in 0.3.0 since 0.2.0:
+1. add
+   1. version number to the title of the GUI
+   2. OP_CODE "SICCT OUTPUT"
+   3. another example using RSA artefacts from an eGK
+
 ## v0.2.0, 2025-06-03
 Summary of changes in 0.2.0 since 0.1.0:
 1. for "find eHKT" the user can choose between "broadcast" ServiceDiscovery

@@ -10,14 +10,15 @@
 #    ignored:
 #    a. "6b", a SICCT-envelope followed by a command APDU
 #    b. "KT" followed by a command APDU sent to SICCT-address '0000'
-#    c. "SlotXXXX" followed by a command APDU sent to SICCT-address 'XXXX' (hexadecimal)
-#    d. "log", everything after that is logged with log-level INFO
-#    e. "wait" followed by a decimal number; the script pauses / [milliseconds]
+#    c. "SICCT OUTPUT" followed by a semicolon separated list with text and waiting time
+#    d. "SlotXXXX" followed by a command APDU sent to SICCT-address 'XXXX' (hexadecimal)
+#    e. "log", everything after that is logged with log-level INFO
+#    f. "wait" followed by a decimal number; the script pauses / [milliseconds]
 
 # Detailed description for command-to-perform "log":
 # The string after "log" is taken as a log-message. That message is logged
-# with log-level "INFO". Such messages improve the readibility of log-files
-# (in case the user whishes to).
+# with log-level "INFO". Such messages improve the readability of log-files
+# (in case the user wishes to).
 logHelloWorld!
 log  Nice messages.
 
@@ -43,6 +44,20 @@ logAgain, SICCT GET STATUS requesting the CTM-DO
 KT 80  13  00 46          00               0000 # SICCT GET STATUS requesting CTM-DO
 KT80130046000000
 
+# Detailed description for command-to-perform "SICCT OUTPUT":
+# "SICCT OUTPUT" is followed by a semicolon separated list of parameters.
+# 1. The first parameter is an arbitrary text, encapsulated in an APPL DO.
+# 2. The second parameter is the "WaitingTime" in seconds (default is 60 seconds).
+# Note 1: The APPL DO supports only a limited set of characters, see SICCT:2016 clause 5.5.10.19.
+#         Unsupported characters are replaced by a space ' ' character.
+# Note 2: The two characters "\n" are replaced by a the character '\n’ (line feed).
+# Note 3: The two characters "\r" are replaced by a the character '\r’ (carriage return).
+# Examples:
+SICCT OUTPUT# empty text, command returns immediately
+SICCT OUTPUT # shows a "space" for 60 seconds
+SICCT OUTPUTHello! World!.# Shows "Hello  World ." for 60 seconds, note: '!' is replaced by ' '.
+SICCT OUTPUT Hello\nWorld;10# Shows for 10 seconds two lines: Line 1 = " Hello", line 2="World"
+
 # Hereafter a SICCT REQUEST ICC command follows for slot 1:
 logSICCT REQUEST ICC, slot 1
 #  CLA INS P1 P2   Lc  Data     Le-field
@@ -51,18 +66,19 @@ KT 80  12  01 0d   03  80-01-3c 00 # SICCT REQUEST ICC, slot 1, standard message
     # Note 1: Intentionally everything in between SICCT REQUEST ICC and
     #         SICCT EJECT ICC has indentation. This improves the readability and
     #         makes it easier to detect subareas in a script.
-    # Note 2: Indentation is not necessary, but helpfull.
+    # Note 2: Indentation is not necessary, but helpfully.
 
     # Detailed description for a command-to-perform "SlotXXXX":
     # "SlotXXXX" followed by a command APDU is intended to be sent to an ICC in slot
     # "XXXX" (hexadecimal number)
     logREAD BINARY from EF.GDO
     #   XXXXCLA INS P1 P2 Le-field Note: No character between SlotXXXX and CLA-byte
-    Slot000100  b0  82 00 00 # READ BINARY with shortFileIdentifer (here EF.GDO)
+    Slot000100  b0  82 00 00 # READ BINARY with shortFileIdentifier (here EF.GDO)
 
     #   XXXX CLA INS P1 P2 Le-field Note: character(s) between SlotXXXX and CLA-byte
     logReadBinary from EF.ATR
-    Slot0001 00  b0  9d 00 00 # READ BINARY with shortFileIdentifer (here EF.ATR)
+    #   XXXX CLA INS P1 P2 Le-field Note: One space between SlotXXXX and CLA-byte
+    Slot0001 00  b0  9d 00 00 # READ BINARY with shortFileIdentifier (here EF.ATR)
 
     # Detailed description for command-to-perform "wait":
     # The string "wait" is followed by a decimal number. That number gives the
